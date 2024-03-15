@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- Deployment.yaml
+- Service.yaml
+
+images:
+- name: app-reports
+  newName: manscalh/app-reports
+  newTag: 73bc449b6f12487ec11d04a8c095c49315c3692f
+- name: app-v
+  newName: manscalh/app-reports
+  newTag: 6c9b906425b4b6842b20b81e8c8e1e3b08ac2a7a

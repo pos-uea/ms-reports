@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-reports
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-reports
+  template:
+    metadata:
+      labels:
+        app: app-reports
+        version: latest
+    spec:
+      containers:
+      - name: app-reports
+        image: manscalh/app-reports:latest
+        imagePullPolicy: Always
+        resources:
+        ports:
+        - containerPort: 3003
