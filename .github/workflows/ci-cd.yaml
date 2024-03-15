@@ -137,7 +137,7 @@ jobs:
           cache-to: type=gha,mode=max
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ secrets.DOCKERHUB_USERNAME }}/app_reports
+          repository: ${{ secrets.DOCKERHUB_USERNAME }}/app-reports
           tags: ${{ github.sha }}, latest
           dockerfile: Dockerfile.prod
 
