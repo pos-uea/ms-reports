@@ -47,4 +47,16 @@ export class ClientProxyRadioFrequency {
             }
         })
     }
+
+    getClientProxyDominioSensorDataInstance(): ClientProxy {
+      
+        return ClientProxyFactory.create({
+            transport: Transport.RMQ,
+            options: {
+                urls: [`${this.protocol}://${this.user}:${this.password}@${this.host}`],
+                noAck: false,
+                queue: 'sensor-data'
+            }
+        })
+    }
 }

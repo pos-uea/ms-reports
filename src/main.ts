@@ -3,6 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Transport } from '@nestjs/microservices';
 import { Logger } from '@nestjs/common';
+import * as moment from "moment"; 
 
 const logger = new Logger('Main');
 
@@ -26,8 +27,12 @@ async function bootstrap() {
   }
   );
 
+ 
+ 
+  console.log('DATA', moment().isoWeek());  
+
   await app.listen().then(() => {
-    logger.log('Microservice is listening',process.env.NODE_ENV,process.env.RMQ_URL);
+    logger.log('Microservice is listening.',process.env.NODE_ENV,process.env.RMQ_URL);
   });
 
 }
