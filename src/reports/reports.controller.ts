@@ -27,5 +27,28 @@ export class ReportsController {
         }
     }
 
+    @MessagePattern('get-analytics-by-type')
+    async getAnalyticsByType(@Payload() type: string, @Ctx() context: RmqContext) {
+        
+        const channel = context.getChannelRef()
+        const originalMsg = context.getMessage()
+
+        try {
+            switch (type) {
+                case 'day':
+                    return await this.appService.getAnalyticsByDay();
+                case 'week':
+                    return await this.appService.getAnalyticsByWeek();
+                case 'month':
+                    return await this.appService.getAnalyticsByMonth();
+                default:
+                    break;
+            }
+            
+        } finally {
+            await channel.ack(originalMsg);
+        }
+    }
+
 
 }
