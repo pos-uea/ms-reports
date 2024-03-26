@@ -8,7 +8,7 @@ resources:
 images:
 - name: app-reports
   newName: manscalh/app-reports
-  newTag: 324a0e733155aeb2da04756515459eb1ebcafd5f
+  newTag: ee8d60066517b067354d9bc27339693ddd985656
 - name: app-v
   newName: manscalh/app-reports
   newTag: 6c9b906425b4b6842b20b81e8c8e1e3b08ac2a7a
